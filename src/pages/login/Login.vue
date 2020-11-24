@@ -2,7 +2,8 @@
   <common-layout>
     <div class="top">
       <div class="header">
-        <img alt="logo" class="logo" src="@/assets/img/logo.png" />
+        <!-- <img alt="logo" class="logo" src="@/assets/img/logo.png" /> -->
+        <i class="iconfont icon-fly"></i>
         <span class="title">{{systemName}}</span>
       </div>
       <!-- <div class="desc">Ant Design 是西湖区最具影响力的 Web 设计规范</div> -->
@@ -182,17 +183,18 @@ export default {
       .header {
         height: 44px;
         line-height: 44px;
-        a {
-          text-decoration: none;
-        }
-        .logo {
-          height: 44px;
-          vertical-align: top;
-          margin-right: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .icon-fly {
+          color: @primary-color;
+          font-size: 40px;
+          margin-right: 20px;
         }
         .title {
           font-size: 33px;
-          color: @title-color;
+          color: @primary-color;
           font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
           font-weight: 600;
           position: relative;

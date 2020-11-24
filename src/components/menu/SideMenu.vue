@@ -3,7 +3,7 @@
     <div :class="['logo', theme]">
       <router-link to="/home">
         <!-- <img src="@/assets/img/favicon.svg" /> -->
-        <i class="iconfont icon-yun"></i>
+        <i class="iconfont icon-fly"></i>
         <h1>{{systemName}}</h1>
       </router-link>
     </div>
