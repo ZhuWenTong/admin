@@ -34,6 +34,11 @@ const routerMap = {
 		path: '500',
 		component: () => import('@/pages/exception/500')
 	},
+	register: {
+		path: '/register',
+		name: 'register',
+		component: () => import('@/views/register/index')
+	},
 	home: {
 		name: '首页',
 		path: 'home',
