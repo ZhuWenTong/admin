@@ -1,5 +1,5 @@
 <template>
-    <div class="worker-list">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="姓名/手机号/护工编号" allowClear />
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
@@ -36,10 +36,11 @@
         </a-table>
         <dialog-panel :type="type" :dialogVisible.sync="dialogVisible" v-if="dialogVisible" :data="currentWorker" />
         <dialog-leave :dialogVisible.sync="leaveVisible" v-if="leaveVisible" :data="currentWorker" />
-    </div>
+    </page-container>
 </template>
 <script>
 import tableData from './data'
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import myDate from '@/views/components/myDate/index'
 import moreAction from './moreAction'
@@ -146,6 +147,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         myDate,
         moreAction,
@@ -202,12 +204,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.worker-list {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px 10px 0 10px;
-}
-</style>

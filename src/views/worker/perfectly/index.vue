@@ -1,5 +1,5 @@
 <template>
-    <div class="perfectly">
+    <page-container>
         <a-tabs default-active-key="1">
             <a-tab-pane key="1" tab="职业信息">
                 <professional />
@@ -8,9 +8,10 @@
                 <work-experiences />
             </a-tab-pane>
         </a-tabs>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 export default {
     data () {
         return {
@@ -18,6 +19,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         professional: () => import('./professional'),
         'work-experiences': () => import('./work-experiences')
     },
@@ -26,12 +28,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.perfectly {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 0 10px;
-}
-</style>

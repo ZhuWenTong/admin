@@ -1,5 +1,5 @@
 <template>
-    <div class="deposit-page">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="姓名/手机号/护工编号" allowClear />
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
@@ -19,9 +19,10 @@
             </template> -->
         </a-table>
         <dialog-add :dialogVisible.sync="dialogVisible" v-if="dialogVisible" @submit="submit" />
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import myDate from '@/views/components/myDate/index'
 export default {
@@ -91,6 +92,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         myDate,
         dialogAdd: () => import('./dialogAdd')
@@ -135,12 +137,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.deposit-page {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

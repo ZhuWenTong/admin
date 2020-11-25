@@ -1,5 +1,5 @@
 <template>
-    <div class="role-manage">
+    <page-container>
         <div style="margin-bottom: 20px;">
             <a-button @click="add" icon="plus-circle" type="primary">添加</a-button>
         </div>
@@ -9,9 +9,10 @@
                 <a-button type="danger" @click="deleteItem(props)">删除</a-button>
             </template>
         </a-table>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 export default {
     data () {
         return {
@@ -30,6 +31,9 @@ export default {
             tableData: [],
             loading: false
         }
+    },
+    components: {
+        pageContainer
     },
     methods: {
         loadData () {
@@ -67,12 +71,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.role-manage {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

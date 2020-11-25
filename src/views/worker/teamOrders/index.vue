@@ -1,5 +1,5 @@
 <template>
-    <div class="group-order">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="姓名/手机号/护工编号" allowClear />
             <a-select placeholder="请选择服务类型" allowClear @change="loadData" v-model="params.service">
@@ -24,9 +24,10 @@
                 <a @click="openView(props.id)" style="margin-right: 5px;">查看</a>
             </template>
         </a-table>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import myDate from '@/views/components/myDate/index'
 export default {
@@ -149,6 +150,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         myDate
     },
@@ -180,12 +182,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.group-order {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

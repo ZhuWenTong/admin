@@ -1,5 +1,5 @@
 <template>
-    <div class="advance">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-range-picker v-model="dateTime" @change="changeDate" :style="{width: '300px'}"></a-range-picker>
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
@@ -20,9 +20,10 @@
             <p>预收总额:0.24元</p>
         </div>
         <a-table :columns="columns" :data-source="tableData" bordered :loading="loading" rowKey="id"></a-table>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -104,6 +105,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea
     },
     methods: {
@@ -149,12 +151,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.advance {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

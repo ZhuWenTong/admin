@@ -1,5 +1,5 @@
 <template>
-    <div class="salary-details">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="护工编号/护工姓名/手机号" />
             <template slot="action">
@@ -25,9 +25,10 @@
         </a-table>
         <dialog-approved :dialogVisible.sync="dialogVisible" :type="approvedType" />
         <dialog-pay :dialogVisible.sync="payVisible" />
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -83,6 +84,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         dialogApproved: () => import('./dialogApproved'),
         dialogPay: () => import('./dialogPay')
@@ -130,12 +132,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.salary-details {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

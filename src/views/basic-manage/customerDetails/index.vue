@@ -1,5 +1,5 @@
 <template>
-    <div class="customer-details">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="姓名/手机号" allowClear />
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
@@ -15,9 +15,10 @@
                 <a @click="toView(props)">查看</a>
             </template> -->
         </a-table>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -81,6 +82,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea
     },
     methods: {
@@ -133,12 +135,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.customer-details {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

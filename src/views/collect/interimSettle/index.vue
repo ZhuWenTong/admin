@@ -1,5 +1,5 @@
 <template>
-    <div class="interim-settle">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <div>
                 <span style="width: 45px;">医院：</span>
@@ -35,9 +35,10 @@
             </template>
         </a-table>
         <dialog-details :dialogVisible.sync="dialogVisible" v-if="dialogVisible" :data="currentSettle" />
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -99,6 +100,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         dialogDetails: () => import('./dialogDetails')
     },
@@ -172,12 +174,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.interim-settle {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="permission">
+    <page-container>
         <a-form-model ref="ruleForm" :model="model" :rules="rules" :label-col="{span: 3}" :wrapper-col="{span: 21}" labelAlign="right">
             <a-form-model-item has-feedback label="角色名称" prop="roleName">
                 <a-input placeholder="请输入角色名称" v-model="model.roleName" allowClear />
@@ -19,9 +19,10 @@
                 <a-button type="primary" @click="save">保存设置</a-button>
             </a-form-model-item>
         </a-form-model>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import myCheck from './myCheck'
 import roleList from './roleData'
 export default {
@@ -45,6 +46,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         myCheck
     },
     methods: {
@@ -99,12 +101,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.permission {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

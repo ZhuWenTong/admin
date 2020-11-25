@@ -1,5 +1,5 @@
 <template>
-    <div class="income-confirm">
+    <page-container>
         <filter-area @search="loadData" :showSearchBtn="false">
             <div>
                 <span>确认收入日期：</span>
@@ -21,9 +21,10 @@
             </template>
         </a-table>
         <dialog-order :dialogVisible.sync="dialogVisible" v-if="dialogVisible" />
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import myDate from '@/views/components/myDate/index'
 export default {
@@ -80,6 +81,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         myDate,
         dialogOrder: () => import('./dialogOrder')
@@ -128,12 +130,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.income-confirm {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

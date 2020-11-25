@@ -1,5 +1,5 @@
 <template>
-    <div class="dispatch">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <div>
                 <span style="width: 80px;">所属医院：</span>
@@ -31,9 +31,10 @@
             </template>
         </filter-area>
         <a-table :columns="columns" :data-source="tableData" bordered :loading="loading" rowKey="id"></a-table>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import myDate from '@/views/components/myDate/index'
 export default {
@@ -106,6 +107,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         myDate
     },
@@ -144,12 +146,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.dispatch {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

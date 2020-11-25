@@ -1,5 +1,5 @@
 <template>
-    <div class="order-detail">
+    <page-container class="order-detail">
         <a-table :columns="columns" :data-source="goodList" bordered>
             <template slot="photo" slot-scope="text, props">
                 <img :src="props.photo" style="height: 50px;" />
@@ -310,9 +310,10 @@
 
             </a-collapse-panel>
         </a-collapse>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 export default {
     data () {
         return {
@@ -342,16 +343,14 @@ export default {
                 dataIndex: 'total'
             }]
         }
+    },
+    components: {
+        pageContainer
     }
 }
 </script>
 <style lang="less">
 .order-detail {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px 10px 20px 10px;
     .wrap-item {
         .item {
             &:not(:last-child) {

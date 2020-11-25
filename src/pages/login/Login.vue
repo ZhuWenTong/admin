@@ -108,7 +108,7 @@ export default {
           // login(name, password).then(this.afterLogin)
           let data = {
             user: {
-              name: '张三'
+              name: '文通'
             },
             token: 'Authorization:' + 1234567890,
             expireAt: new Date(new Date().getTime() + 30 * 60 * 1000),

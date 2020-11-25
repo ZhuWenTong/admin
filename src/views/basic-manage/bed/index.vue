@@ -1,5 +1,5 @@
 <template>
-    <div class="bed-management">
+    <page-container class="bed-management">
         <div class="hospital-list">
             <a-tree :tree-data="hospitalData" :load-data="loadHospital">
                 <template slot="custom" slot-scope="item">
@@ -16,9 +16,10 @@
             </filter-area>
             <a-table :columns="columns" :data-source="tableData" bordered :loading="loading" rowKey="id"></a-table>
         </div>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -59,6 +60,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea
     },
     methods: {
@@ -105,11 +107,6 @@ export default {
 </script>
 <style lang="less">
 .bed-management {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
     display: flex;
     flex-direction: row;
     .hospital-list {

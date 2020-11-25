@@ -1,5 +1,5 @@
 <template>
-    <div class="comments">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
                 <a-select-option v-for="item in hospitalList" :key="item.value" :value="item.value">{{item.label}}</a-select-option>
@@ -27,10 +27,11 @@
             </template>
         </a-table>
         <dialog-reply :dialogVisible.sync="dialogVisible" :data="currentComment" v-if="dialogVisible" />
-    </div>
+    </page-container>
 </template>
 <script>
 import tableData from './data'
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import dialogReply from './dialogReply'
 export default {
@@ -97,6 +98,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         dialogReply
     },
@@ -142,12 +144,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.comments {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px 10px 0 10px;
-}
-</style>

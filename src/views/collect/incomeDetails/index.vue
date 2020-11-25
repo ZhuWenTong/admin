@@ -1,5 +1,5 @@
 <template>
-    <div class="income-details">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <div>
                 <span>医院：</span>
@@ -33,9 +33,10 @@
                 <p v-for="(item, index) in props.incomeMethod" :key="index">{{item.label}}：{{item.value}}</p>
             </template>
         </a-table>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -108,6 +109,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea
     },
     methods: {
@@ -167,12 +169,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.income-details {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

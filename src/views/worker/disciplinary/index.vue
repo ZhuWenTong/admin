@@ -1,5 +1,5 @@
 <template>
-    <div class="disciplinary">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="姓名/护工编号" allowClear />
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
@@ -29,9 +29,10 @@
         </a-table>
         <dialog-add :dialogVisible.sync="addVisible" v-if="addVisible" @change="loadData" />
         <dialog-edit :dialogVisible.sync="editVisible" v-if="editVisible" :data="currentRecord" @change="loadData" />
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 import myDate from '@/views/components/myDate/index'
 export default {
@@ -119,6 +120,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         myDate,
         dialogAdd: () => import('./dialogAdd'),
@@ -182,12 +184,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.disciplinary {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

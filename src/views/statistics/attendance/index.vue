@@ -1,5 +1,5 @@
 <template>
-    <div class="attendance">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-select placeholder="请选择医院" allowClear @change="loadData" v-model="params.hospital">
                 <a-select-option v-for="item in hospitalList" :key="item.value" :value="item.value">{{item.label}}</a-select-option>
@@ -19,9 +19,10 @@
                 </a-table>
             </div>
         </a-spin>
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -43,6 +44,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea
     },
     methods: {
@@ -129,12 +131,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.attendance {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="references">
+    <page-container>
         <filter-area @search="loadData" @clear="clear">
             <a-input v-model="params.keyword" placeholder="姓名/手机号" allowClear />
             <a-select placeholder="请选择介绍人类型" allowClear @change="loadData" v-model="params.referencesType">
@@ -22,9 +22,10 @@
         </filter-area>
         <a-table :columns="columns" :data-source="tableData" bordered :loading="loading" rowKey="id"></a-table>
         <dialogAdd :dialogVisible.sync="addVisible" v-if="addVisible" @change="loadData" />
-    </div>
+    </page-container>
 </template>
 <script>
+import pageContainer from '@/views/components/page-container/index'
 import filterArea from '@/components/page/filterArea/index'
 export default {
     data () {
@@ -99,6 +100,7 @@ export default {
         }
     },
     components: {
+        pageContainer,
         filterArea,
         dialogAdd: () => import('./dialogAdd')
     },
@@ -137,12 +139,3 @@ export default {
     }
 }
 </script>
-<style lang="less">
-.references {
-    background: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
-    border-radius: 4px;
-    border: 1px solid #ebeef5;
-    padding: 10px;
-}
-</style>
