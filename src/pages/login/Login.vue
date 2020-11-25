@@ -163,6 +163,9 @@ export default {
             }, {
               router: 'roleManage',
               children: ['role', 'permission']
+            }, {
+              router: 'demo',
+              children: []
             }]
           }]
           loadRoutes(routesConfig)

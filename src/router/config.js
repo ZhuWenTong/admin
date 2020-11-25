@@ -266,15 +266,15 @@ const options = {
 				},
 				component: () => import('@/views/role-manage/permission/index')
 			}]
+		},
+		{
+			name: '示例',
+			path: 'demo',
+			meta: {
+				icon: 'windows'
+			},
+			component: () => import('@/views/demo/index')
 		}
-		// {
-		// 	name: '示例',
-		// 	path: 'demo',
-		// 	meta: {
-		// 		icon: 'windows'
-		// 	},
-		// 	component: () => import('@/views/demo/index')
-		// }
 	]
 	}]
 }

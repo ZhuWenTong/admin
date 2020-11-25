@@ -314,6 +314,14 @@ const routerMap = {
 			invisible: true
 		},
 		component: () => import('@/views/role-manage/permission/index')
+	},
+	demo: {
+		name: '示例',
+		path: 'demo',
+		meta: {
+			icon: 'windows'
+		},
+		component: () => import('@/views/demo/index')
 	}
 }
 export default routerMap
