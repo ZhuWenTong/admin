@@ -3,7 +3,7 @@
         <div class="hospital-list">
             <a-spin :spinning="treeLoading">
                 <div v-show="treeLoading" style="height: 200px;"></div>
-                <a-tree :tree-data="hospitalData" @select="handleSelect">
+                <a-tree :tree-data="hospitalData" :load-data="loadTreeNode" @select="handleSelect">
                     <template slot="custom" slot-scope="item">
                         <div class="custom-node">
                             <span>{{item.title}}</span>
@@ -79,6 +79,32 @@ export default {
         dialogBed: () => import('./dialogBed')
     },
     methods: {
+        loadTreeNode (treeNode) {
+            return new Promise(resolve => {
+                let {key, depth, children} = treeNode.dataRef
+                if (children && children.length) {
+                    resolve()
+                    return
+                }
+                setTimeout(() => {
+                    // 按需加载的demo 仅对第一条
+                    if (key === 1 && depth === 1) {
+                        treeNode.dataRef.children = [{
+                            title: '一号楼',
+                            buildName: '一号楼',
+                            depth: 2,
+                            key: 4321,
+                            sort: 1,
+                            remark: 'xxxxx',
+                            scopedSlots: { title: 'custom' },
+                            children: []
+                        }]
+                        this.hospitalData = [...this.hospitalData]
+                    }
+                    resolve()
+                }, 1000)
+            })
+        },
         handleChange (key, data) {
             this.currentSelect = data
             if (key === 'add' && data.depth === 1) { // 新建楼栋
