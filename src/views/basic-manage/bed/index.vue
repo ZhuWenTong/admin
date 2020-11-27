@@ -251,7 +251,8 @@ export default {
                 let newItem = {
                     ...data,
                     title: data.bedName,
-                    depth: this.currentSelect.depth + 1
+                    depth: this.currentSelect.depth + 1,
+                    isLeaf: true
                 }
                 this.currentSelect.dataRef.children.push(newItem)
             }
